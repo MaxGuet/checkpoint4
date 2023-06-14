@@ -29,10 +29,10 @@ pool.getConnection().catch(() => {
 
 const models = {};
 
-const ItemManager = require("./ItemManager");
+const VinylManager = require("./VinylManager");
 
-models.item = new ItemManager();
-models.item.setDatabase(pool);
+models.vinyl = new VinylManager();
+models.vinyl.setDatabase(pool);
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
