@@ -1,7 +1,8 @@
 const models = require("../models");
 
 const browse = (req, res) => {
-  models.VinylArtist.findAll()
+  models.genre
+    .findAll()
     .then(([rows]) => {
       const clearRows = rows.map((row) => {
         const { mdp, ...clearRow } = row;
@@ -16,7 +17,7 @@ const browse = (req, res) => {
 };
 
 const read = (req, res) => {
-  models.vinylartist
+  models.genre
     .find(req.params.id)
     .then(([rows]) => {
       if (rows[0] == null) {
@@ -38,7 +39,7 @@ const edit = (req, res) => {
 
   item.id = parseInt(req.params.id, 10);
 
-  models.vinylartist
+  models.genre
     .update(item)
     .then(([result]) => {
       if (result.affectedRows === 0) {
@@ -58,7 +59,7 @@ const add = (req, res) => {
 
   // TODO validations (length, format...)
 
-  models.vinylartist
+  models.genre
     .insert(vinylartist)
     .then((vinylartistId) => {
       vinylartist.id = vinylartistId;
@@ -71,7 +72,7 @@ const add = (req, res) => {
 };
 
 const destroy = async (req, res) => {
-  await models.vinylartist
+  await models.genre
     .delete(req.params.id)
     .then(([result]) => {
       if (result.affectedRows === 0) {

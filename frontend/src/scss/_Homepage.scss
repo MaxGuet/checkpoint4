@@ -6,15 +6,37 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+
   .main-title {
     color: $main-white;
     font-family: "Bebas Neue", sans-serif;
     margin-bottom: 20vh;
     font-size: 3rem;
+    position: relative;
+
     &:hover {
       cursor: pointer;
       transform: scale(0);
       transition: ease-out 6s;
+      animation: title-rotation 6s linear infinite;
+    }
+
+    @keyframes title-rotation {
+      0% {
+        transform: scale(1) rotate(0deg);
+      }
+      25% {
+        transform: scale(0.75) rotate(90deg);
+      }
+      50% {
+        transform: scale(0.5) rotate(180deg);
+      }
+      75% {
+        transform: scale(0.25) rotate(270deg);
+      }
+      100% {
+        transform: scale(0) rotate(360deg);
+      }
     }
   }
 }

@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -12,9 +14,18 @@
   display: flex;
   justify-content: flex-start;
 }
+#header nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+#header nav a {
+  text-decoration: none;
+  color: rgb(236, 232, 232);
+}
 #header .burger-menu {
   margin-left: 20px;
-  height: 10vh;
+  height: 8vh;
   width: 100px;
   background-color: rgb(13, 13, 13);
   display: flex;
@@ -31,7 +42,7 @@
   border-radius: 0.5em;
 }
 #header .burger-menu .burger-bar.clicked:nth-child(1) {
-  transform: rotate(45deg) translate(0.75em, 1.25em);
+  transform: rotate(45deg) translate(1.5em, 1.25em);
   transition: ease-out 0.5s;
 }
 #header .burger-menu .burger-bar.clicked:nth-child(2) {
@@ -39,12 +50,21 @@
   transition: ease-out 0.5s;
 }
 #header .burger-menu .burger-bar.clicked:nth-child(3) {
-  transform: rotate(135deg) translate(-0.5em, 1em);
+  transform: rotate(135deg) translate(-1.2em, 1em);
   transition: ease-out 0.5s;
 }
 #header .burger-menu .burger-bar.unclicked {
   transform: rotate(0) translate(0);
   transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+}
+#header .add {
+  color: white;
+  font-size: 5rem;
+  align-self: center;
+  margin-right: 10px;
+}
+#header .add:hover {
+  cursor: pointer;
 }
 #header .menu {
   margin-top: 5em;
@@ -53,7 +73,7 @@
   background-color: rgb(13, 13, 13);
   position: absolute;
   top: 0;
-  z-index: -1;
+  z-index: 1;
 }
 #header .menu .pages-selection {
   display: flex;
@@ -72,13 +92,17 @@
 }
 #header .menu .pages-selection li:hover {
   cursor: pointer;
-  transform: scale(1.1);
-  transition: ease-out 0.5s;
 }
-#header .hidden {
+#header .menu .pages-selection li a {
+  text-decoration: none;
+  color: rgb(236, 232, 232);
+}
+
+.hidden {
   display: none;
 }
-#header .visible {
+
+.visible {
   display: inherit;
 }
 
@@ -99,15 +123,127 @@
   font-family: "Bebas Neue", sans-serif;
   margin-bottom: 20vh;
   font-size: 3rem;
+  position: relative;
 }
 .main-div .main-title:hover {
   cursor: pointer;
   transform: scale(0);
   transition: ease-out 6s;
+  animation: title-rotation 6s linear infinite;
+}
+@keyframes title-rotation {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(0.75) rotate(90deg);
+  }
+  50% {
+    transform: scale(0.5) rotate(180deg);
+  }
+  75% {
+    transform: scale(0.25) rotate(270deg);
+  }
+  100% {
+    transform: scale(0) rotate(360deg);
+  }
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.record-list-container {
+  background: url("https://wallpapercave.com/wp/wp6908208.png") center/cover;
+}
+.record-list-container .record-list {
+  display: flex;
+  justify-content: space-between;
+  width: 70vw;
+  align-items: center;
+  align-self: center;
+  flex-wrap: wrap;
+  margin: auto;
+  width: 70vw;
+  height: 88vh;
+  color: rgb(236, 232, 232);
+}
+.record-list-container .record-list .record {
+  width: 250px;
+  height: 250px;
+  border: 1px solid rgb(236, 232, 232);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 5%;
+}
+.record-list-container .record-list .record .rec-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.record-list-container .record-list .record .rec-title {
+  text-align: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.form-div-container {
+  background: url("https://wallpapercave.com/wp/wp6908208.png") center/cover;
+  height: 88vh;
+}
+.form-div-container .form-div {
+  font-family: "Bebas Neue", sans-serif;
+  width: 66%;
+  height: 66vh;
+  border: 1px solid rgb(236, 232, 232);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.form-div-container .form-div .add-form {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.form-div-container .form-div .add-form .button {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  -moz-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.form-div-container .form-div .add-form .button:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
 }/*# sourceMappingURL=index.css.map */

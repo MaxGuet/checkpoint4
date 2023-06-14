@@ -25,13 +25,23 @@ function Header() {
           <div className={burgerClass} />
           <div className={burgerClass} />
         </button>
+        <h1 className="add">
+          <Link to="/Add">+</Link>
+        </h1>
       </nav>
       <div className={menuClass}>
         <ul className="pages-selection">
-          <Link to="/">
-            <li>Accueil</li>
-          </Link>
-          <li>Mes disques</li>
+          <li>
+            <Link to="/" onClick={() => updateMenu()}>
+              Accueil
+            </Link>
+          </li>
+
+          <li>
+            <Link to="/collection" onClick={() => updateMenu()}>
+              Mes disques
+            </Link>
+          </li>
           <li>Par Artistes</li>
           <li>Par Genre</li>
         </ul>
