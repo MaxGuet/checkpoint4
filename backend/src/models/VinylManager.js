@@ -5,6 +5,14 @@ class VinylManager extends AbstractManager {
     super({ table: "vinyl" });
   }
 
+  findAll() {
+    return this.database.query(`SELECT *
+      FROM ${this.table} AS v
+      INNER JOIN artist_vinyl AS av ON v.id = av.vinyl_id
+      INNER JOIN artist AS a ON av.artist_id = a.id;
+    `);
+  }
+
   insert(vinyl) {
     return this.database
       .query(

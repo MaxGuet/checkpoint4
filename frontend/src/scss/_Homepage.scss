@@ -1,0 +1,20 @@
+@import "./variables";
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+.main-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  .main-title {
+    color: $main-white;
+    font-family: "Bebas Neue", sans-serif;
+    margin-bottom: 20vh;
+    font-size: 3rem;
+    &:hover {
+      cursor: pointer;
+      transform: scale(0);
+      transition: ease-out 6s;
+    }
+  }
+}

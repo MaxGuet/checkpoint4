@@ -1,13 +1,13 @@
-/* eslint-disable camelcase */
-const path = require("path");
-const fs = require("fs");
 const models = require("../models");
 
 const browse = (req, res) => {
-  models.vinyl
-    .findAll()
+  models.VinylArtist.findAll()
     .then(([rows]) => {
-      res.send(rows);
+      const clearRows = rows.map((row) => {
+        const { mdp, ...clearRow } = row;
+        return clearRow;
+      });
+      res.send(clearRows);
     })
     .catch((err) => {
       console.error(err);
@@ -16,7 +16,7 @@ const browse = (req, res) => {
 };
 
 const read = (req, res) => {
-  models.vinyl
+  models.vinylartist
     .find(req.params.id)
     .then(([rows]) => {
       if (rows[0] == null) {
@@ -38,7 +38,7 @@ const edit = (req, res) => {
 
   item.id = parseInt(req.params.id, 10);
 
-  models.vinyl
+  models.vinylartist
     .update(item)
     .then(([result]) => {
       if (result.affectedRows === 0) {
@@ -53,52 +53,25 @@ const edit = (req, res) => {
     });
 };
 
-const add = async (req, res) => {
-  const { title, genre_id, have_want } = req.body;
-  const { file } = req;
-  if (!file) {
-    return res.sendStatus(500);
-  }
+const add = (req, res) => {
+  const categorie = req.body;
 
-  const baseFolder = path.join(
-    __dirname,
-    "..",
-    "..",
-    "public",
-    "assets",
-    "images"
-  );
-  const originalName = path.join(baseFolder, file.originalname);
-  const filename = path.join(baseFolder, file.filename);
+  // TODO validations (length, format...)
 
-  fs.rename(filename, originalName, (err) => {
-    if (err) res.status(500);
-  });
-
-  const link = `assets/images/${file.originalName}`;
-
-  try {
-    const result = await models.video.insert({
-      title,
-      genre_id,
-      have_want,
-      link,
+  models.categorie
+    .insert(categorie)
+    .then((categoryId) => {
+      categorie.id = categoryId;
+      res.json(categorie).status(201);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
     });
-    const newVinyl = {
-      title,
-      genre_id,
-      have_want,
-      link,
-      id: result,
-    };
-    return res.status(201).json(newVinyl);
-  } catch (e) {
-    return res.status(500).send(e.message);
-  }
 };
 
-const destroy = (req, res) => {
-  models.vinyl
+const destroy = async (req, res) => {
+  await models.categorie
     .delete(req.params.id)
     .then(([result]) => {
       if (result.affectedRows === 0) {
@@ -113,10 +86,4 @@ const destroy = (req, res) => {
     });
 };
 
-module.exports = {
-  browse,
-  read,
-  edit,
-  add,
-  destroy,
-};
+module.exports = { browse, read, edit, add, destroy };

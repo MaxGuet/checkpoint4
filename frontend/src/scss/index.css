@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#header {
+  background: rgb(13, 13, 13);
+  height: 5em;
+  display: flex;
+  justify-content: flex-start;
+}
+#header .burger-menu {
+  margin-left: 20px;
+  height: 10vh;
+  width: 100px;
+  background-color: rgb(13, 13, 13);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  cursor: pointer;
+  border: none;
+}
+#header .burger-menu .burger-bar {
+  width: 3em;
+  height: 0.5em;
+  background-color: rgb(236, 232, 232);
+  border-radius: 0.5em;
+}
+#header .burger-menu .burger-bar.clicked:nth-child(1) {
+  transform: rotate(45deg) translate(0.75em, 1.25em);
+  transition: ease-out 0.5s;
+}
+#header .burger-menu .burger-bar.clicked:nth-child(2) {
+  transform: scale(0.1);
+  transition: ease-out 0.5s;
+}
+#header .burger-menu .burger-bar.clicked:nth-child(3) {
+  transform: rotate(135deg) translate(-0.5em, 1em);
+  transition: ease-out 0.5s;
+}
+#header .burger-menu .burger-bar.unclicked {
+  transform: rotate(0) translate(0);
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+}
+#header .menu {
+  margin-top: 5em;
+  width: 15%;
+  height: 88vh;
+  background-color: rgb(13, 13, 13);
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+#header .menu .pages-selection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  list-style: none;
+  margin-bottom: 200px;
+}
+#header .menu .pages-selection li {
+  font-size: 2rem;
+  margin-top: 100px;
+  font-family: "Bebas Neue", sans-serif;
+  color: rgb(236, 232, 232);
+}
+#header .menu .pages-selection li:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: ease-out 0.5s;
+}
+#header .hidden {
+  display: none;
+}
+#header .visible {
+  display: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.main-div .main-title {
+  color: rgb(236, 232, 232);
+  font-family: "Bebas Neue", sans-serif;
+  margin-bottom: 20vh;
+  font-size: 3rem;
+}
+.main-div .main-title:hover {
+  cursor: pointer;
+  transform: scale(0);
+  transition: ease-out 6s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}/*# sourceMappingURL=index.css.map */

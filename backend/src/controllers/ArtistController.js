@@ -1,10 +1,9 @@
-/* eslint-disable camelcase */
 const path = require("path");
 const fs = require("fs");
 const models = require("../models");
 
 const browse = (req, res) => {
-  models.vinyl
+  models.artist
     .findAll()
     .then(([rows]) => {
       res.send(rows);
@@ -16,7 +15,7 @@ const browse = (req, res) => {
 };
 
 const read = (req, res) => {
-  models.vinyl
+  models.artist
     .find(req.params.id)
     .then(([rows]) => {
       if (rows[0] == null) {
@@ -38,7 +37,7 @@ const edit = (req, res) => {
 
   item.id = parseInt(req.params.id, 10);
 
-  models.vinyl
+  models.artist
     .update(item)
     .then(([result]) => {
       if (result.affectedRows === 0) {
@@ -54,7 +53,7 @@ const edit = (req, res) => {
 };
 
 const add = async (req, res) => {
-  const { title, genre_id, have_want } = req.body;
+  const { name } = req.body;
   const { file } = req;
   if (!file) {
     return res.sendStatus(500);
@@ -79,26 +78,22 @@ const add = async (req, res) => {
 
   try {
     const result = await models.video.insert({
-      title,
-      genre_id,
-      have_want,
+      name,
       link,
     });
-    const newVinyl = {
-      title,
-      genre_id,
-      have_want,
+    const newArtist = {
+      name,
       link,
       id: result,
     };
-    return res.status(201).json(newVinyl);
+    return res.status(201).json(newArtist);
   } catch (e) {
     return res.status(500).send(e.message);
   }
 };
 
 const destroy = (req, res) => {
-  models.vinyl
+  models.artist
     .delete(req.params.id)
     .then(([result]) => {
       if (result.affectedRows === 0) {
