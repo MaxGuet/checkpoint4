@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+@import "./variables";
+
+#header {
+  background: $main-black;
+  height: 9vh;
+  display: flex;
+  justify-content: flex-start;
+  width: 100vw;
+  nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    a {
+      text-decoration: none;
+      color: $main-white;
+    }
+  }
+  .burger-menu {
+    margin-top: 4px;
+
+    margin-left: 20px;
+    height: 8vh;
+    width: 100px;
+    background-color: $main-black;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    cursor: pointer;
+    border: none;
+    .burger-bar {
+      width: 3em;
+      height: 0.5em;
+      background-color: $main-white;
+      border-radius: 0.5em;
+    }
+    .burger-bar.clicked:nth-child(1) {
+      transform: rotate(45deg) translate(1.5em, 1.25em);
+      transition: ease-out 0.5s;
+    }
+    .burger-bar.clicked:nth-child(2) {
+      transform: scale(0.1);
+      transition: ease-out 0.5s;
+    }
+    .burger-bar.clicked:nth-child(3) {
+      transform: rotate(135deg) translate(-1.2em, 1em);
+      transition: ease-out 0.5s;
+    }
+    .burger-bar.unclicked {
+      transform: rotate(0) translate(0);
+      transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+    }
+  }
+  .add {
+    color: white;
+    font-size: 5rem;
+    align-self: center;
+    margin-right: 10px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .menu {
+    margin-top: 9vh;
+    width: 15%;
+    height: 91vh;
+    background-color: $main-black;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    .pages-selection {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      list-style: none;
+      margin-bottom: 200px;
+      li {
+        font-size: 2rem;
+        margin-top: 100px;
+        font-family: "Bebas Neue", sans-serif;
+        color: $main-white;
+        &:hover {
+          cursor: pointer;
+        }
+        a {
+          text-decoration: none;
+          color: $main-white;
+        }
+      }
+      .user-button {
+        margin-top: 50%;
+        font-family: "Open Sans", sans-serif;
+        font-size: 16px;
+        letter-spacing: 2px;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #565656;
+        cursor: pointer;
+        border: 3px solid;
+        padding: 0.25em 0.5em;
+        box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px,
+          4px 4px 0px 0px, 5px 5px 0px 0px;
+        position: relative;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        &:active {
+          box-shadow: 0px 0px 0px 0px;
+          top: 5px;
+          left: 5px;
+        }
+      }
+    }
+  }
+}
+.hidden {
+  display: none;
+}
+.visible {
+  display: inherit;
+}

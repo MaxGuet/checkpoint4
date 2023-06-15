@@ -1,0 +1,56 @@
+@import "./variables";
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+.main-div {
+  background: url("https://wallpapercave.com/wp/wp6908208.png") center/cover
+    fixed;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 91vh;
+
+  .main-title {
+    color: $main-white;
+    font-family: "Bebas Neue", sans-serif;
+    margin-bottom: 20vh;
+    font-size: 3rem;
+    position: relative;
+
+    height: 50vh;
+    width: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1000px;
+    background: $main-black;
+    animation: title-rotation 20s linear infinite;
+    a {
+      animation: title-rotation 20s linear infinite;
+
+      text-decoration: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    @keyframes title-rotation {
+      0% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(90deg);
+      }
+      50% {
+        transform: rotate(180deg);
+      }
+      75% {
+        transform: rotate(270deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}
