@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import "../scss/index.css";
 import { Link } from "react-router-dom";
-const {useAuth}
+
 function Header() {
   const [burgerClass, setBurgerClass] = useState("burger-bar unclicked");
   const [menuClass, setMenuClass] = useState("menu hidden");
   const [isMenuClicked, setIsMenuClicked] = useState(false);
-
 
   function updateMenu() {
     if (!isMenuClicked) {
