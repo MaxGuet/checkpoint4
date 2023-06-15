@@ -54,29 +54,38 @@
       }
     }
   }
-  .record {
-    margin-right: 10%;
-    font-size: 1.2rem;
-    width: 250px;
-    height: 250px;
-    border: 1px solid $main-white;
+  .record-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: space-around;
-    margin-top: 5%;
-    -webkit-text-stroke: 1px $main-black;
-    .rec-info {
-      font-family: "Bebas Neue", sans-serif;
-
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 15%;
+    .record {
+      background: rgb(131 127 127 / 50%);
+      margin-right: 10%;
+      font-size: 1.2rem;
+      width: 250px;
+      height: 250px;
+      border: 1px solid $main-white;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      color: $main-white;
-    }
-    .rec-title {
-      text-align: center;
+      justify-content: space-around;
+      margin-top: 5%;
+      -webkit-text-stroke: 1px $main-black;
+      .rec-info {
+        font-family: "Bebas Neue", sans-serif;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: $main-white;
+      }
+      .rec-title {
+        text-align: center;
+      }
     }
   }
 }

@@ -313,7 +313,16 @@
 .container-div .artist-container .add-artist:hover {
   cursor: pointer;
 }
-.container-div .record {
+.container-div .record-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 15%;
+}
+.container-div .record-container .record {
+  background: rgba(131, 127, 127, 0.5);
   margin-right: 10%;
   font-size: 1.2rem;
   width: 250px;
@@ -326,7 +335,7 @@
   margin-top: 5%;
   -webkit-text-stroke: 1px rgb(13, 13, 13);
 }
-.container-div .record .rec-info {
+.container-div .record-container .record .rec-info {
   font-family: "Bebas Neue", sans-serif;
   display: flex;
   flex-direction: column;
@@ -334,7 +343,7 @@
   justify-content: center;
   color: rgb(236, 232, 232);
 }
-.container-div .record .rec-title {
+.container-div .record-container .record .rec-title {
   text-align: center;
 }
 
@@ -378,7 +387,16 @@
   transition: 1s, -webkit-mask-size 0.3s 0.3s;
   cursor: pointer;
 }
-.main-div-genre .record {
+.main-div-genre .record-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 15%;
+}
+.main-div-genre .record-container .record {
+  background: rgba(131, 127, 127, 0.5);
   margin-right: 10%;
   font-size: 1.2rem;
   width: 250px;
@@ -391,7 +409,7 @@
   margin-top: 5%;
   -webkit-text-stroke: 1px rgb(13, 13, 13);
 }
-.main-div-genre .record .rec-info {
+.main-div-genre .record-container .record .rec-info {
   font-family: "Bebas Neue", sans-serif;
   display: flex;
   flex-direction: column;
@@ -399,6 +417,6 @@
   justify-content: center;
   color: rgb(236, 232, 232);
 }
-.main-div-genre .record .rec-title {
+.main-div-genre .record-container .record .rec-title {
   text-align: center;
 }/*# sourceMappingURL=index.css.map */

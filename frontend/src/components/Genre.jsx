@@ -7,7 +7,6 @@ function Genre() {
   const [allGenres, setAllGenres] = useState([]);
   const [allRecords, setAllRecords] = useState([]);
   const [genreName, setGenreName] = useState();
-  console.log(allGenres);
 
   useEffect(() => {
     api.get("/vinyl").then((res) => {
@@ -41,16 +40,18 @@ function Genre() {
           </div>
         ))}
       </div>
-      {vinylByGenre &&
-        vinylByGenre.map((rec) => (
-          <div className="record" key={rec.id}>
-            <div className="rec-info">
-              <h1 className="rec-title">{rec.title}</h1>
-              <h2 className="rec-artist">{rec.artist_name}</h2>
+      <div className="record-container">
+        {vinylByGenre &&
+          vinylByGenre.map((rec) => (
+            <div className="record" key={rec.id}>
+              <div className="rec-info">
+                <h1 className="rec-title">{rec.title}</h1>
+                <h2 className="rec-artist">{rec.artist_name}</h2>
+              </div>
+              <h2 className="rec-genre">{rec.genre_name}</h2>
             </div>
-            <h2 className="rec-genre">{rec.genre_name}</h2>
-          </div>
-        ))}
+          ))}
+      </div>
     </div>
   );
 }
