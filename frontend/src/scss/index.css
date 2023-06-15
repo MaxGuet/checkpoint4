@@ -511,9 +511,11 @@
 }
 .registration-form label {
   color: rgb(236, 232, 232);
+  font-size: 1.5rem;
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
+  font-family: "Bebas Neue", sans-serif;
 }
 .registration-form label input {
   padding: 8px;
@@ -528,4 +530,5 @@
   cursor: pointer;
   background-color: rgb(13, 13, 13);
   color: rgb(236, 232, 232);
+  font-family: "Bebas Neue", sans-serif;
 }/*# sourceMappingURL=index.css.map */
