@@ -7,7 +7,7 @@ class ArtistManager extends AbstractManager {
 
   insert(artist) {
     return this.database
-      .query(`insert into ${this.table} (name) values (?)`, [artist.name])
+      .query(`insert into ${this.table} (name) values (?)`, [artist])
       .then((res) => {
         return res;
       })

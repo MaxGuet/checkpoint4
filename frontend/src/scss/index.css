@@ -4,6 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -101,6 +102,29 @@
   text-decoration: none;
   color: rgb(236, 232, 232);
 }
+#header .menu .pages-selection .user-button {
+  margin-top: 50%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #565656;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  -moz-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+#header .menu .pages-selection .user-button:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
 
 .hidden {
   display: none;
@@ -138,9 +162,12 @@
   background: rgb(13, 13, 13);
   animation: title-rotation 20s linear infinite;
 }
+.main-div .main-title a {
+  animation: title-rotation 20s linear infinite;
+  text-decoration: none;
+}
 .main-div .main-title:hover {
   cursor: pointer;
-  transition: ease-out 6s;
 }
 @keyframes title-rotation {
   0% {
@@ -257,6 +284,42 @@
   touch-action: manipulation;
 }
 .form-div-container .form-div .add-form .button:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+.adding-another {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 91vh;
+  width: 100vw;
+}
+.adding-another h1 {
+  color: rgb(236, 232, 232);
+  font-family: "Bebas Neue", sans-serif;
+  margin-bottom: 5%;
+}
+.adding-another .button {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #565656;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  -moz-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.adding-another .button:active {
   box-shadow: 0px 0px 0px 0px;
   top: 5px;
   left: 5px;
@@ -419,4 +482,53 @@
 }
 .main-div-genre .record-container .record .rec-title {
   text-align: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.registration-form h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+.registration-form label {
+  color: rgb(236, 232, 232);
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  font-family: "Bebas Neue", sans-serif;
+}
+.registration-form label input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+.registration-form button {
+  padding: 10px 20px;
+  border: 1px solid rgb(236, 232, 232);
+  font-size: 16px;
+  cursor: pointer;
+  background-color: rgb(13, 13, 13);
+  color: rgb(236, 232, 232);
+  font-family: "Bebas Neue", sans-serif;
 }/*# sourceMappingURL=index.css.map */

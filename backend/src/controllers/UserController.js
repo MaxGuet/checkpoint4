@@ -38,15 +38,15 @@ const read = (req, res) => {
 };
 
 const add = async (req, res) => {
-  const { name, email, mdp } = req.body;
+  const { name, mdp } = req.body;
   const hashed = await hashPassword(mdp);
+
   if (!hashed) {
     return res.sendStatus(500);
   }
   try {
     const result = await models.user.insert({
       name,
-      email,
       mdp: hashed,
     });
     return res.status(201).json(result);
@@ -60,9 +60,9 @@ const add = async (req, res) => {
 };
 
 const login = async (req, res, next) => {
-  const { email } = req.body;
-  if (!email) return res.sendStatus(422);
-  const result = await models.user.login(email);
+  const { name } = req.body;
+  if (!name) return res.sendStatus(422);
+  const result = await models.user.login(name);
   if (result) {
     const [firstResult] = result;
     if (firstResult != null) {

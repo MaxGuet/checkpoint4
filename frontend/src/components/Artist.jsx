@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import useAPI from "../api/useApi";
+import { useAuth } from "../../context/authContext";
 
 function Artist() {
   const [artists, setArtists] = useState([]);
   const [allVinyls, setAllVinyls] = useState([]);
   const [artistId, setArtistId] = useState();
-  const [addArtist, setAddArtist] = useState(true);
-  const [artistName, setArtistName] = useState("");
+
+  const { userInfo } = useAuth();
 
   const api = useAPI();
   useEffect(() => {
@@ -16,10 +17,26 @@ function Artist() {
   }, []);
 
   useEffect(() => {
-    api.get("/vinyl").then((res) => {
-      setAllVinyls(res.data);
-    });
-  }, []);
+    if (userInfo && userInfo.id) {
+      api
+        .get(`/vinyl/user/${userInfo.id}`)
+        .then((res) => {
+          setAllVinyls(res.data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else {
+      api
+        .get("/vinyl")
+        .then((res) => {
+          setAllVinyls(res.data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }, [userInfo]);
 
   const vinylByArtist = allVinyls.filter((rec) => rec.artist_name === artistId);
 
@@ -40,27 +57,6 @@ function Artist() {
             <h1>{artist.name}</h1>
           </div>
         ))}
-        {addArtist ? (
-          <button
-            type="button"
-            className="add-artist"
-            onClick={() => {
-              setAddArtist(false);
-            }}
-          >
-            + Ajouter un artiste
-          </button>
-        ) : (
-          <>
-            <label htmlFor="artist">Name of the artist:</label>
-            <input
-              type="text"
-              name="artist"
-              value={artistName}
-              onChange={(e) => setArtistName(e.target.value)}
-            />
-          </>
-        )}
       </div>
       <div className="record-container">
         {vinylByArtist &&
