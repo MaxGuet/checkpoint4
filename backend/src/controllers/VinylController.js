@@ -54,7 +54,8 @@ const edit = (req, res) => {
 };
 
 const add = async (req, res) => {
-  const { title, genre_id, have_want, name, genre_name } = req.body;
+  const { title, genre_id, name, genre_name, artist_id } = req.body;
+
   const { file } = req;
   if (!file) {
     return res.sendStatus(500);
@@ -75,34 +76,46 @@ const add = async (req, res) => {
     if (err) res.status(500);
   });
 
-  const cover = `assets/images/${file.originalName}`;
+  const cover = `assets/images/${file.originalname}`;
 
   try {
     const result = await models.vinyl.insert({
+      artist_id,
       genre_name,
+      genre_id,
       name,
       title,
-      genre_id,
-      have_want,
       cover,
     });
+
+    const vinylartist = {
+      artist_id,
+      vinyl_id: result[0].insertId,
+    };
+
     const newVinyl = {
+      genre_id,
       genre_name,
       name,
       title,
-      genre_id,
-      have_want,
       cover,
       id: result,
     };
 
     await models.artist.insert(newVinyl).catch((err) => {
       console.error(err);
-
-      models.genre.insert(newVinyl).catch((error) => {
-        console.error(error);
-      });
     });
+    await models.genre.insert(newVinyl).catch((error) => {
+      console.error(error);
+    });
+    await models.vinylartist
+      .insert(vinylartist)
+      .then((vinylartistId) => {
+        vinylartist.id = vinylartistId;
+      })
+      .catch((err) => {
+        console.error(err);
+      });
 
     return res.status(201).json(newVinyl);
   } catch (e) {

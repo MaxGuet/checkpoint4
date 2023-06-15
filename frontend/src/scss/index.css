@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +11,7 @@
 
 #header {
   background: rgb(13, 13, 13);
-  height: 5em;
+  height: 9vh;
   display: flex;
   justify-content: flex-start;
   width: 100vw;
@@ -69,9 +70,9 @@
   cursor: pointer;
 }
 #header .menu {
-  margin-top: 5em;
+  margin-top: 9vh;
   width: 15%;
-  height: 88vh;
+  height: 91vh;
   background-color: rgb(13, 13, 13);
   position: absolute;
   top: 0;
@@ -181,7 +182,7 @@
   flex-wrap: wrap;
   margin: auto;
   width: 100vw;
-  height: 100vh;
+  height: 91vh;
   color: rgb(236, 232, 232);
 }
 .record-list-container .record-list .record {
@@ -214,7 +215,8 @@
 
 .form-div-container {
   background: url("https://wallpapercave.com/wp/wp6908208.png") center/cover fixed;
-  height: 88vh;
+  height: 91vh;
+  overflow: hidden;
 }
 .form-div-container .form-div {
   font-family: "Bebas Neue", sans-serif;
@@ -257,4 +259,37 @@
   box-shadow: 0px 0px 0px 0px;
   top: 5px;
   left: 5px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.artist-container {
+  height: 91vh;
+  width: 100vw;
+  background: url("https://substreammagazine.com/wp-content/uploads/2021/04/Night-Beats-Outlae.png") center/cover fixed;
+  font-family: "Bebas Neue", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  flex-wrap: wrap;
+  font-size: 1.3rem;
+  color: rgb(236, 232, 232);
+  -webkit-text-stroke: 1px rgb(13, 13, 13);
+}
+.artist-container .artist {
+  border: 5px solid;
+  -o-border-image: rgb(236, 232, 232) 8;
+     border-image: rgb(236, 232, 232) 8;
+  -webkit-mask: conic-gradient(from 180deg at top 8px right 8px, rgba(0, 0, 0, 0) 90deg, #000 0) var(--_i, 200%) 0/200% var(--_i, 8px) border-box no-repeat, conic-gradient(at bottom 8px left 8px, rgba(0, 0, 0, 0) 90deg, #000 0) 0 var(--_i, 200%)/var(--_i, 8px) 200% border-box no-repeat, linear-gradient(#000 0 0) padding-box no-repeat;
+  transition: 0.3s, -webkit-mask-position 0.3s 0.3s;
+}
+.artist-container .artist:hover {
+  --_i: 100%;
+  transition: 1s, -webkit-mask-size 0.3s 0.3s;
+  cursor: pointer;
 }/*# sourceMappingURL=index.css.map */

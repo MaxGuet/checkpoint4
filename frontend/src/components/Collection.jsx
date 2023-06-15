@@ -18,6 +18,7 @@ function Collection() {
       <div className="record-list">
         {recordData.map((rec) => (
           <div className="record" key={rec.id}>
+            <img src={rec.cover} alt="" />
             <div className="rec-info">
               <h1 className="rec-title">{rec.title}</h1>
               <h2 className="rec-artist">{rec.artist_name}</h2>

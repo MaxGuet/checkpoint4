@@ -4,7 +4,7 @@
 
 #header {
   background: $main-black;
-  height: 5em;
+  height: 9vh;
   display: flex;
   justify-content: flex-start;
   width: 100vw;
@@ -63,9 +63,9 @@
     }
   }
   .menu {
-    margin-top: 5em;
+    margin-top: 9vh;
     width: 15%;
-    height: 88vh;
+    height: 91vh;
     background-color: $main-black;
     position: absolute;
     top: 0;

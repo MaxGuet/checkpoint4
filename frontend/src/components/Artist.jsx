@@ -13,7 +13,7 @@ function Artist() {
   return (
     <div className="artist-container">
       {artists.map((artist) => (
-        <div key={artist.id}>
+        <div key={artist.id} className="artist">
           <h1>{artist.name}</h1>
         </div>
       ))}

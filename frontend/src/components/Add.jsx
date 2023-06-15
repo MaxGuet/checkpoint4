@@ -7,8 +7,10 @@ function Add() {
   const [genreData, setGenreData] = useState([]);
   const [recordTitle, setRecordTitle] = useState("");
   const [artistName, setArtistName] = useState("");
-  const [recordGenre, setRecordGenre] = useState("");
+  const [artistId, setArtistId] = useState();
+  const [recordGenre, setRecordGenre] = useState();
   const [fileUpload, setFileUpload] = useState(null);
+  const [artistData, setArtistData] = useState([]);
 
   function addRecord(e) {
     e.preventDefault();
@@ -16,6 +18,7 @@ function Add() {
     formData.append("title", recordTitle);
     formData.append("name", artistName);
     formData.append("genre_id", recordGenre);
+    formData.append("artist_id", artistId);
     formData.append("cover", fileUpload);
 
     api.post("/vinyl", formData).then((res) => {
@@ -26,6 +29,12 @@ function Add() {
   useEffect(() => {
     api.get("/genre").then((res) => {
       setGenreData(res.data);
+    });
+  }, []);
+
+  useEffect(() => {
+    api.get("/artist").then((res) => {
+      setArtistData(res.data);
     });
   }, []);
 
@@ -48,6 +57,20 @@ function Add() {
             value={artistName}
             onChange={(e) => setArtistName(e.target.value)}
           />
+          <label htmlFor="artist">Or choose from the list:</label>
+          <select
+            name="artist"
+            id="artist"
+            value={artistId}
+            onChange={(e) => setArtistId(e.target.value)}
+          >
+            <option>--Choose an artist--</option>
+            {artistData.map((artist) => (
+              <option value={artist.id} key={artist.id}>
+                {artist.name}
+              </option>
+            ))}
+          </select>
 
           <label htmlFor="genre">Genre:</label>
           <select
@@ -56,6 +79,7 @@ function Add() {
             value={recordGenre}
             onChange={(e) => setRecordGenre(e.target.value)}
           >
+            <option>--Choose a genre--</option>
             {genreData.map((genre) => (
               <option value={genre.id} key={genre.id}>
                 {genre.genre_name}
