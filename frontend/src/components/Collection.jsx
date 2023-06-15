@@ -8,7 +8,6 @@ function Collection() {
   const { userInfo } = useAuth();
 
   const [recordData, setRecordData] = useState([]);
-  console.log(recordData);
 
   useEffect(() => {
     if (userInfo && userInfo.id) {
@@ -27,7 +26,7 @@ function Collection() {
           setRecordData(res.data);
         })
         .catch((error) => {
-          console.log(error);
+          console.error(error);
         });
     }
   }, [userInfo]);

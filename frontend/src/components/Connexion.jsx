@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import useAPI from "../api/useApi";
 import { useAuth } from "../../context/authContext";
 
 function Connexion() {
+  const navigate = useNavigate();
   const api = useAPI();
   const [userName, setUserName] = useState();
 
@@ -39,6 +41,7 @@ function Connexion() {
         const { token } = res.data;
         api.defaults.headers.authorization = `Bearer ${token}`;
         setUserInfo(res.data.user);
+        navigate("/collection");
       })
       .catch((err) => {
         console.error(err);
@@ -71,8 +74,11 @@ function Connexion() {
             />
           </label>
           <br />
-          <button type="submit">Connexion</button>
+          <button type="submit" className="button">
+            S'enregistrer
+          </button>
           <button
+            className="button"
             type="button"
             onClick={() => {
               setSuccess(!success);

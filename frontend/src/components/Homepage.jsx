@@ -6,7 +6,7 @@ function Homepage() {
   return (
     <div className="main-div">
       <h1 className="main-title">
-        <Link to="/collection">MY RECORD COLLECTION</Link>
+        <Link to="/connexion">MY RECORD COLLECTION</Link>
       </h1>
     </div>
   );
