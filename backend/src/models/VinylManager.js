@@ -15,6 +15,20 @@ class VinylManager extends AbstractManager {
     `);
   }
 
+  findAllByArtist(artist) {
+    return this.database
+      .query(
+        `SELECT v.*, a.name, a.id from ${this.table} as v inner join artist_vinyl as av on v.id=av.vinyl_id inner join artist as a on av.artist_id=a.id where a.id = ?`,
+        [artist.id]
+      )
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => {
+        throw err;
+      });
+  }
+
   insert(vinyl) {
     return this.database
       .query(

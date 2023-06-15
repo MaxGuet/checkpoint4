@@ -1,13 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 @import "./variables";
-.container-div {
+.main-div-genre {
   width: 100vw;
+  height: 91vh;
   background: url("https://substreammagazine.com/wp-content/uploads/2021/04/Night-Beats-Outlae.png")
     center/cover fixed;
   display: flex;
   justify-content: space-between;
-  .artist-container {
+  .genre-container {
     height: 91vh;
     width: 50vw;
     font-family: "Bebas Neue", sans-serif;
@@ -19,8 +20,7 @@
     font-size: 1.3rem;
     color: $main-white;
     -webkit-text-stroke: 1px $main-black;
-
-    .artist {
+    .genre {
       margin-left: 3%;
       margin-top: 1%;
       border: 5px solid;
@@ -36,22 +36,10 @@
         linear-gradient(#000 0 0) padding-box no-repeat;
       transition: 0.3s, -webkit-mask-position 0.3s 0.3s;
     }
-    .artist:hover {
+    .genre:hover {
       --_i: 100%;
       transition: 1s, -webkit-mask-size 0.3s 0.3s;
       cursor: pointer;
-    }
-    .add-artist {
-      font-family: "Bebas Neue", sans-serif;
-      background: rgba(255, 255, 255, 0);
-      border: 0px;
-      color: $main-white;
-      font-size: 4rem;
-      align-self: center;
-      margin-right: 10px;
-      &:hover {
-        cursor: pointer;
-      }
     }
   }
   .record {

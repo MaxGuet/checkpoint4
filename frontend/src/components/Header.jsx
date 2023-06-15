@@ -47,7 +47,9 @@ function Header() {
               Par Artistes
             </Link>
           </li>
-          <li>Par Genre</li>
+          <Link to="/genre" onClick={() => updateMenu()}>
+            <li>Par Genre</li>
+          </Link>
           <li>Connexion</li>
         </ul>
       </div>

@@ -31,6 +31,22 @@ const read = (req, res) => {
     });
 };
 
+const findByArtist = (req, res) => {
+  models.vinyl
+    .findAllByArtist(req.params.artistId)
+    .then(([rows]) => {
+      if (rows[0] == null) {
+        res.sendStatus(404);
+      } else {
+        res.send(rows[0]);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 const edit = (req, res) => {
   const item = req.body;
 
@@ -140,6 +156,7 @@ const destroy = (req, res) => {
 };
 
 module.exports = {
+  findByArtist,
   browse,
   read,
   edit,

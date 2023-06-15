@@ -4,6 +4,7 @@ import Homepage from "./components/Homepage";
 import Collection from "./components/Collection";
 import Add from "./components/Add";
 import Artist from "./components/Artist";
+import Genre from "./components/Genre";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/collection" element={<Collection />} />
           <Route path="/Add" element={<Add />} />
           <Route path="/artist" element={<Artist />} />
+          <Route path="/genre" element={<Genre />} />
         </Routes>
       </Router>
     </div>

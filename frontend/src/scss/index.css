@@ -3,6 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -135,12 +136,11 @@
   justify-content: center;
   border-radius: 1000px;
   background: rgb(13, 13, 13);
+  animation: title-rotation 20s linear infinite;
 }
 .main-div .main-title:hover {
   cursor: pointer;
-  transform: scale(0);
   transition: ease-out 6s;
-  animation: title-rotation 6s linear infinite;
 }
 @keyframes title-rotation {
   0% {
@@ -186,6 +186,7 @@
   color: rgb(236, 232, 232);
 }
 .record-list-container .record-list .record {
+  font-family: "Bebas Neue", sans-serif;
   font-size: 1.2rem;
   width: 250px;
   height: 250px;
@@ -267,29 +268,137 @@
   box-sizing: border-box;
 }
 
-.artist-container {
-  height: 91vh;
+.container-div {
   width: 100vw;
   background: url("https://substreammagazine.com/wp-content/uploads/2021/04/Night-Beats-Outlae.png") center/cover fixed;
+  display: flex;
+  justify-content: space-between;
+}
+.container-div .artist-container {
+  height: 91vh;
+  width: 50vw;
   font-family: "Bebas Neue", sans-serif;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   justify-content: start;
   flex-wrap: wrap;
   font-size: 1.3rem;
   color: rgb(236, 232, 232);
   -webkit-text-stroke: 1px rgb(13, 13, 13);
 }
-.artist-container .artist {
+.container-div .artist-container .artist {
+  margin-left: 3%;
+  margin-top: 1%;
   border: 5px solid;
   -o-border-image: rgb(236, 232, 232) 8;
      border-image: rgb(236, 232, 232) 8;
   -webkit-mask: conic-gradient(from 180deg at top 8px right 8px, rgba(0, 0, 0, 0) 90deg, #000 0) var(--_i, 200%) 0/200% var(--_i, 8px) border-box no-repeat, conic-gradient(at bottom 8px left 8px, rgba(0, 0, 0, 0) 90deg, #000 0) 0 var(--_i, 200%)/var(--_i, 8px) 200% border-box no-repeat, linear-gradient(#000 0 0) padding-box no-repeat;
   transition: 0.3s, -webkit-mask-position 0.3s 0.3s;
 }
-.artist-container .artist:hover {
+.container-div .artist-container .artist:hover {
   --_i: 100%;
   transition: 1s, -webkit-mask-size 0.3s 0.3s;
   cursor: pointer;
+}
+.container-div .artist-container .add-artist {
+  font-family: "Bebas Neue", sans-serif;
+  background: rgba(255, 255, 255, 0);
+  border: 0px;
+  color: rgb(236, 232, 232);
+  font-size: 4rem;
+  align-self: center;
+  margin-right: 10px;
+}
+.container-div .artist-container .add-artist:hover {
+  cursor: pointer;
+}
+.container-div .record {
+  margin-right: 10%;
+  font-size: 1.2rem;
+  width: 250px;
+  height: 250px;
+  border: 1px solid rgb(236, 232, 232);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 5%;
+  -webkit-text-stroke: 1px rgb(13, 13, 13);
+}
+.container-div .record .rec-info {
+  font-family: "Bebas Neue", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgb(236, 232, 232);
+}
+.container-div .record .rec-title {
+  text-align: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-div-genre {
+  width: 100vw;
+  height: 91vh;
+  background: url("https://substreammagazine.com/wp-content/uploads/2021/04/Night-Beats-Outlae.png") center/cover fixed;
+  display: flex;
+  justify-content: space-between;
+}
+.main-div-genre .genre-container {
+  height: 91vh;
+  width: 50vw;
+  font-family: "Bebas Neue", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  flex-wrap: wrap;
+  font-size: 1.3rem;
+  color: rgb(236, 232, 232);
+  -webkit-text-stroke: 1px rgb(13, 13, 13);
+}
+.main-div-genre .genre-container .genre {
+  margin-left: 3%;
+  margin-top: 1%;
+  border: 5px solid;
+  -o-border-image: rgb(236, 232, 232) 8;
+     border-image: rgb(236, 232, 232) 8;
+  -webkit-mask: conic-gradient(from 180deg at top 8px right 8px, rgba(0, 0, 0, 0) 90deg, #000 0) var(--_i, 200%) 0/200% var(--_i, 8px) border-box no-repeat, conic-gradient(at bottom 8px left 8px, rgba(0, 0, 0, 0) 90deg, #000 0) 0 var(--_i, 200%)/var(--_i, 8px) 200% border-box no-repeat, linear-gradient(#000 0 0) padding-box no-repeat;
+  transition: 0.3s, -webkit-mask-position 0.3s 0.3s;
+}
+.main-div-genre .genre-container .genre:hover {
+  --_i: 100%;
+  transition: 1s, -webkit-mask-size 0.3s 0.3s;
+  cursor: pointer;
+}
+.main-div-genre .record {
+  margin-right: 10%;
+  font-size: 1.2rem;
+  width: 250px;
+  height: 250px;
+  border: 1px solid rgb(236, 232, 232);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 5%;
+  -webkit-text-stroke: 1px rgb(13, 13, 13);
+}
+.main-div-genre .record .rec-info {
+  font-family: "Bebas Neue", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgb(236, 232, 232);
+}
+.main-div-genre .record .rec-title {
+  text-align: center;
 }/*# sourceMappingURL=index.css.map */
