@@ -1,5 +1,3 @@
-const path = require("path");
-const fs = require("fs");
 const models = require("../models");
 
 const browse = (req, res) => {
@@ -52,44 +50,21 @@ const edit = (req, res) => {
     });
 };
 
-const add = async (req, res) => {
-  const { name } = req.body;
-  const { file } = req;
-  if (!file) {
-    return res.sendStatus(500);
-  }
+const add = (req, res) => {
+  const artist = req.body;
 
-  const baseFolder = path.join(
-    __dirname,
-    "..",
-    "..",
-    "public",
-    "assets",
-    "images"
-  );
-  const originalName = path.join(baseFolder, file.originalname);
-  const filename = path.join(baseFolder, file.filename);
+  // TODO validations (length, format...)
 
-  fs.rename(filename, originalName, (err) => {
-    if (err) res.status(500);
-  });
-
-  const link = `assets/images/${file.originalName}`;
-
-  try {
-    const result = await models.video.insert({
-      name,
-      link,
+  models.artist
+    .insert(artist)
+    .then((artistId) => {
+      artist.id = artistId;
+      res.json(artist).status(201);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
     });
-    const newArtist = {
-      name,
-      link,
-      id: result,
-    };
-    return res.status(201).json(newArtist);
-  } catch (e) {
-    return res.status(500).send(e.message);
-  }
 };
 
 const destroy = (req, res) => {

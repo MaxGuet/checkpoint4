@@ -42,8 +42,13 @@ function Header() {
               Mes disques
             </Link>
           </li>
-          <li>Par Artistes</li>
+          <li>
+            <Link to="/artist" onClick={() => updateMenu()}>
+              Par Artistes
+            </Link>
+          </li>
           <li>Par Genre</li>
+          <li>Connexion</li>
         </ul>
       </div>
     </div>

@@ -13,6 +13,7 @@
   height: 5em;
   display: flex;
   justify-content: flex-start;
+  width: 100vw;
 }
 #header nav {
   width: 100%;
@@ -24,6 +25,7 @@
   color: rgb(236, 232, 232);
 }
 #header .burger-menu {
+  margin-top: 4px;
   margin-left: 20px;
   height: 8vh;
   width: 100px;
@@ -113,10 +115,11 @@
 }
 
 .main-div {
+  background: url("https://wallpapercave.com/wp/wp6908208.png") center/cover fixed;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 91vh;
 }
 .main-div .main-title {
   color: rgb(236, 232, 232);
@@ -124,6 +127,13 @@
   margin-bottom: 20vh;
   font-size: 3rem;
   position: relative;
+  height: 50vh;
+  width: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1000px;
+  background: rgb(13, 13, 13);
 }
 .main-div .main-title:hover {
   cursor: pointer;
@@ -133,19 +143,19 @@
 }
 @keyframes title-rotation {
   0% {
-    transform: scale(1) rotate(0deg);
+    transform: rotate(0deg);
   }
   25% {
-    transform: scale(0.75) rotate(90deg);
+    transform: rotate(90deg);
   }
   50% {
-    transform: scale(0.5) rotate(180deg);
+    transform: rotate(180deg);
   }
   75% {
-    transform: scale(0.25) rotate(270deg);
+    transform: rotate(270deg);
   }
   100% {
-    transform: scale(0) rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
@@ -161,22 +171,21 @@
   box-sizing: border-box;
 }
 
-.record-list-container {
-  background: url("https://wallpapercave.com/wp/wp6908208.png") center/cover;
-}
 .record-list-container .record-list {
+  background: url("https://wallpapercave.com/wp/wp6908208.png") center/cover fixed;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 70vw;
   align-items: center;
   align-self: center;
   flex-wrap: wrap;
   margin: auto;
-  width: 70vw;
-  height: 88vh;
+  width: 100vw;
+  height: 100vh;
   color: rgb(236, 232, 232);
 }
 .record-list-container .record-list .record {
+  font-size: 1.2rem;
   width: 250px;
   height: 250px;
   border: 1px solid rgb(236, 232, 232);
@@ -185,6 +194,7 @@
   align-items: center;
   justify-content: space-around;
   margin-top: 5%;
+  -webkit-text-stroke: 1px rgb(13, 13, 13);
 }
 .record-list-container .record-list .record .rec-info {
   display: flex;
@@ -203,7 +213,7 @@
 }
 
 .form-div-container {
-  background: url("https://wallpapercave.com/wp/wp6908208.png") center/cover;
+  background: url("https://wallpapercave.com/wp/wp6908208.png") center/cover fixed;
   height: 88vh;
 }
 .form-div-container .form-div {
@@ -219,6 +229,7 @@
   color: white;
 }
 .form-div-container .form-div .add-form {
+  font-size: 1.8rem;
   height: 70%;
   display: flex;
   flex-direction: column;
@@ -231,7 +242,7 @@
   letter-spacing: 2px;
   text-decoration: none;
   text-transform: uppercase;
-  color: #000;
+  color: #565656;
   cursor: pointer;
   border: 3px solid;
   padding: 0.25em 0.5em;

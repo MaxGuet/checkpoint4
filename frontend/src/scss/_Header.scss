@@ -7,6 +7,7 @@
   height: 5em;
   display: flex;
   justify-content: flex-start;
+  width: 100vw;
   nav {
     width: 100%;
     display: flex;
@@ -17,6 +18,8 @@
     }
   }
   .burger-menu {
+    margin-top: 4px;
+
     margin-left: 20px;
     height: 8vh;
     width: 100px;

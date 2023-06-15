@@ -2,19 +2,21 @@
 
 @import "./variables";
 .record-list-container {
-  background: url("https://wallpapercave.com/wp/wp6908208.png") center/cover;
   .record-list {
+    background: url("https://wallpapercave.com/wp/wp6908208.png") center/cover
+      fixed;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 70vw;
     align-items: center;
     align-self: center;
     flex-wrap: wrap;
     margin: auto;
-    width: 70vw;
-    height: 88vh;
+    width: 100vw;
+    height: 100vh;
     color: $main-white;
     .record {
+      font-size: 1.2rem;
       width: 250px;
       height: 250px;
       border: 1px solid $main-white;
@@ -23,6 +25,7 @@
       align-items: center;
       justify-content: space-around;
       margin-top: 5%;
+      -webkit-text-stroke: 1px $main-black;
       .rec-info {
         display: flex;
         flex-direction: column;

@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Homepage from "./components/Homepage";
 import Collection from "./components/Collection";
 import Add from "./components/Add";
+import Artist from "./components/Artist";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/collection" element={<Collection />} />
           <Route path="/Add" element={<Add />} />
+          <Route path="/artist" element={<Artist />} />
         </Routes>
       </Router>
     </div>

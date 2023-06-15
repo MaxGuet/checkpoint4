@@ -7,11 +7,11 @@ class VinylManager extends AbstractManager {
 
   findAll() {
     return this.database
-      .query(`SELECT v.*, g.name AS genre_name, a.name AS artist_name
+      .query(`SELECT v.*, g.genre_name AS genre_name, a.name AS artist_name
     FROM ${this.table} AS v
-    INNER JOIN artist_vinyl AS av ON v.id = av.vinyl_id
-    INNER JOIN artist AS a ON av.artist_id = a.id
-    INNER JOIN genre AS g ON v.genre_id = g.id;
+    LEFT JOIN artist_vinyl AS av ON v.id = av.vinyl_id
+    LEFT JOIN artist AS a ON av.artist_id = a.id
+    LEFT JOIN genre AS g ON v.genre_id = g.id;
     `);
   }
 

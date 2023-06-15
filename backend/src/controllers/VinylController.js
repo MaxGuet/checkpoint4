@@ -54,7 +54,7 @@ const edit = (req, res) => {
 };
 
 const add = async (req, res) => {
-  const { title, genre_id, have_want } = req.body;
+  const { title, genre_id, have_want, name, genre_name } = req.body;
   const { file } = req;
   if (!file) {
     return res.sendStatus(500);
@@ -75,22 +75,35 @@ const add = async (req, res) => {
     if (err) res.status(500);
   });
 
-  const link = `assets/images/${file.originalName}`;
+  const cover = `assets/images/${file.originalName}`;
 
   try {
-    const result = await models.video.insert({
+    const result = await models.vinyl.insert({
+      genre_name,
+      name,
       title,
       genre_id,
       have_want,
-      link,
+      cover,
     });
     const newVinyl = {
+      genre_name,
+      name,
       title,
       genre_id,
       have_want,
-      link,
+      cover,
       id: result,
     };
+
+    await models.artist.insert(newVinyl).catch((err) => {
+      console.error(err);
+
+      models.genre.insert(newVinyl).catch((error) => {
+        console.error(error);
+      });
+    });
+
     return res.status(201).json(newVinyl);
   } catch (e) {
     return res.status(500).send(e.message);

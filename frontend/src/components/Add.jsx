@@ -8,13 +8,15 @@ function Add() {
   const [recordTitle, setRecordTitle] = useState("");
   const [artistName, setArtistName] = useState("");
   const [recordGenre, setRecordGenre] = useState("");
+  const [fileUpload, setFileUpload] = useState(null);
 
   function addRecord(e) {
     e.preventDefault();
     const formData = new FormData();
     formData.append("title", recordTitle);
     formData.append("name", artistName);
-    formData.append("genre", recordGenre);
+    formData.append("genre_id", recordGenre);
+    formData.append("cover", fileUpload);
 
     api.post("/vinyl", formData).then((res) => {
       return res;
@@ -56,10 +58,18 @@ function Add() {
           >
             {genreData.map((genre) => (
               <option value={genre.id} key={genre.id}>
-                {genre.name}
+                {genre.genre_name}
               </option>
             ))}
           </select>
+          <label htmlFor="link">
+            <input
+              type="file"
+              name="cover"
+              onChange={(e) => setFileUpload(e.target.files[0])}
+              id="file-selection-button"
+            />
+          </label>
           <button type="submit" className="button">
             Add to my collection
           </button>
