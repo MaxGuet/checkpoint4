@@ -9,7 +9,7 @@ function Header() {
   const [burgerClass, setBurgerClass] = useState("burger-bar unclicked");
   const [menuClass, setMenuClass] = useState("menu hidden");
   const [isMenuClicked, setIsMenuClicked] = useState(false);
-  const { success, setSuccess } = useAuth();
+  const { success, setSuccess, userInfo } = useAuth();
 
   function updateMenu() {
     if (!isMenuClicked) {
@@ -45,12 +45,20 @@ function Header() {
               Accueil
             </Link>
           </li>
+          {userInfo?.id ? (
+            <li>
+              <Link to="/collection" onClick={() => updateMenu()}>
+                Mes disques
+              </Link>
+            </li>
+          ) : (
+            <li>
+              <Link to="/collection" onClick={() => updateMenu()}>
+                Les disques
+              </Link>
+            </li>
+          )}
 
-          <li>
-            <Link to="/collection" onClick={() => updateMenu()}>
-              Mes disques
-            </Link>
-          </li>
           <li>
             <Link to="/artist" onClick={() => updateMenu()}>
               Par Artistes
