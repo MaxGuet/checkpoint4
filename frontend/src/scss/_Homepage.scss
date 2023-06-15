@@ -25,10 +25,14 @@
     border-radius: 1000px;
     background: $main-black;
     animation: title-rotation 20s linear infinite;
+    a {
+      animation: title-rotation 20s linear infinite;
+
+      text-decoration: none;
+    }
 
     &:hover {
       cursor: pointer;
-      transition: ease-out 6s;
     }
 
     @keyframes title-rotation {

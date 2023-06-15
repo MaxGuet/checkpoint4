@@ -4,6 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -101,6 +102,29 @@
   text-decoration: none;
   color: rgb(236, 232, 232);
 }
+#header .menu .pages-selection .user-button {
+  margin-top: 50%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #565656;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  -moz-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+#header .menu .pages-selection .user-button:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
 
 .hidden {
   display: none;
@@ -138,9 +162,12 @@
   background: rgb(13, 13, 13);
   animation: title-rotation 20s linear infinite;
 }
+.main-div .main-title a {
+  animation: title-rotation 20s linear infinite;
+  text-decoration: none;
+}
 .main-div .main-title:hover {
   cursor: pointer;
-  transition: ease-out 6s;
 }
 @keyframes title-rotation {
   0% {
@@ -419,4 +446,14 @@
 }
 .main-div-genre .record-container .record .rec-title {
   text-align: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-div {
+  background: url("https://wallpapercave.com/wp/wp6908208.png") center/cover;
 }/*# sourceMappingURL=index.css.map */

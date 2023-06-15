@@ -30,9 +30,9 @@ class UserManager extends AbstractManager {
       });
   }
 
-  login(email) {
+  login(name) {
     return this.database
-      .query(`select * from ${this.table} where email = ?`, [email])
+      .query(`select * from ${this.table} where name = ?`, [name])
       .then(([user]) => user)
       .catch((err) => {
         console.error(err);

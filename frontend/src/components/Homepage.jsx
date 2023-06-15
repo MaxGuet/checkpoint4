@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 function Homepage() {
   return (
     <div className="main-div">
-      <Link to="/collection">
-        <h1 className="main-title">MY RECORD COLLECTION</h1>
-      </Link>
+      <h1 className="main-title">
+        <Link to="/collection">MY RECORD COLLECTION</Link>
+      </h1>
     </div>
   );
 }

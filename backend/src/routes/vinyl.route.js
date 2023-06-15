@@ -12,7 +12,7 @@ const VinylController = require("../controllers/VinylController");
 
 vinylRoute.get("/", VinylController.browse);
 vinylRoute.get("/:id", VinylController.read);
-vinylRoute.get("/:artistId", VinylController.findByArtist);
+vinylRoute.get("/user/:user", VinylController.findByArtist);
 vinylRoute.put("/:id", VinylController.edit);
 vinylRoute.delete("/:id", VinylController.destroy);
 vinylRoute.post("/", upload.single("cover"), VinylController.add);

@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import "../scss/index.css";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../context/authContext";
+import useAPI from "../api/useApi";
 
 function Header() {
+  const api = useAPI();
   const [burgerClass, setBurgerClass] = useState("burger-bar unclicked");
   const [menuClass, setMenuClass] = useState("menu hidden");
   const [isMenuClicked, setIsMenuClicked] = useState(false);
+  const { success, setSuccess } = useAuth();
 
   function updateMenu() {
     if (!isMenuClicked) {
@@ -17,6 +21,11 @@ function Header() {
     }
     setIsMenuClicked(!isMenuClicked);
   }
+
+  const handleLogOut = () => {
+    delete api.defaults.headers.authorization;
+    setSuccess(!success);
+  };
   return (
     <div id="header">
       <nav>
@@ -53,8 +62,22 @@ function Header() {
               Par Genre
             </Link>
           </li>
-
-          <li>Connexion</li>
+          {success ? (
+            <li>
+              {" "}
+              <Link to="/connexion" onClick={() => updateMenu()}>
+                Connexion{" "}
+              </Link>
+            </li>
+          ) : (
+            <button
+              className="user-button"
+              type="button"
+              onClick={handleLogOut}
+            >
+              Déconnexion
+            </button>
+          )}
         </ul>
       </div>
     </div>
