@@ -31,14 +31,15 @@ const read = (req, res) => {
     });
 };
 
-const findByArtist = (req, res) => {
-  models.vinyl
-    .findAllByArtist(req.params.artistId)
+const findByArtist = async (req, res) => {
+  const { user } = req.params;
+  await models.vinyl
+    .findAllByArtist(user)
     .then(([rows]) => {
       if (rows[0] == null) {
         res.sendStatus(404);
       } else {
-        res.send(rows[0]);
+        res.send(rows);
       }
     })
     .catch((err) => {
@@ -70,7 +71,7 @@ const edit = (req, res) => {
 };
 
 const add = async (req, res) => {
-  const { title, genre_id, name, genre_name, artist_id } = req.body;
+  const { title, genre_id, name, genre_name, artist_id, user_id } = req.body;
 
   const { file } = req;
   if (!file) {
@@ -109,6 +110,11 @@ const add = async (req, res) => {
       vinyl_id: result[0].insertId,
     };
 
+    const userVinyl = {
+      vinyl_id: result[0].insertId,
+      user_id,
+    };
+
     const newVinyl = {
       genre_id,
       genre_name,
@@ -128,6 +134,14 @@ const add = async (req, res) => {
       .insert(vinylartist)
       .then((vinylartistId) => {
         vinylartist.id = vinylartistId;
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+    await models.uservinyl
+      .insert(userVinyl)
+      .then((userVinylId) => {
+        userVinyl.id = userVinylId;
       })
       .catch((err) => {
         console.error(err);

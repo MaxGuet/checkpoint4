@@ -34,6 +34,7 @@ const ArtistManager = require("./ArtistManager");
 const UserManager = require("./UserManager");
 const VinylArtistManager = require("./VinylArtistManager");
 const GenreManager = require("./GenreManager");
+const UserVinylManager = require("./UserVinylManager");
 
 models.vinyl = new VinylManager();
 models.vinyl.setDatabase(pool);
@@ -49,6 +50,9 @@ models.vinylartist.setDatabase(pool);
 
 models.genre = new GenreManager();
 models.genre.setDatabase(pool);
+
+models.uservinyl = new UserVinylManager();
+models.uservinyl.setDatabase(pool);
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model

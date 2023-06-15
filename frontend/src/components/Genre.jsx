@@ -1,18 +1,36 @@
 import React, { useEffect, useState } from "react";
 import useAPI from "../api/useApi";
 import "../scss/index.css";
+import { useAuth } from "../../context/authContext";
 
 function Genre() {
   const api = useAPI();
+  const { userInfo } = useAuth();
   const [allGenres, setAllGenres] = useState([]);
   const [allRecords, setAllRecords] = useState([]);
   const [genreName, setGenreName] = useState();
 
   useEffect(() => {
-    api.get("/vinyl").then((res) => {
-      setAllRecords(res.data);
-    });
-  }, []);
+    if (userInfo && userInfo.id) {
+      api
+        .get(`/vinyl/user/${userInfo.id}`)
+        .then((res) => {
+          setAllRecords(res.data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else {
+      api
+        .get("/vinyl")
+        .then((res) => {
+          setAllRecords(res.data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }, [userInfo]);
 
   useEffect(() => {
     api.get("/genre").then((res) => {

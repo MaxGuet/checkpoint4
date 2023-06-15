@@ -15,11 +15,11 @@ class VinylManager extends AbstractManager {
     `);
   }
 
-  findAllByArtist(artist) {
+  findAllByArtist(user) {
     return this.database
       .query(
-        `SELECT v.*, a.name, a.id from ${this.table} as v inner join artist_vinyl as av on v.id=av.vinyl_id inner join artist as a on av.artist_id=a.id where a.id = ?`,
-        [artist.id]
+        `SELECT v.*, g.genre_name AS genre_name, a.name AS artist_name     FROM vinyl AS v     LEFT JOIN artist_vinyl AS av ON v.id = av.vinyl_id     LEFT JOIN artist AS a ON av.artist_id = a.id     LEFT JOIN genre AS g ON v.genre_id = g.id     inner join user_vinyl as uv on v.id = uv.vinyl_id     inner join user as u on uv.user_id = u.id where u.id=?`,
+        [user]
       )
       .then((res) => {
         return res;
